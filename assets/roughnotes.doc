@@ -1,0 +1,478 @@
+<meta charset="UTF-8">: 
+Imagine your website is like a book with different languages. 
+This tag tells the web browser how to read the characters in your book. 
+UTF-8 is like a magical universal language that can understand all the different characters from different languages. 
+So, by using this tag, you ensure your website can display any language properly, 
+whether it's English, Chinese, Arabic, or any other language.
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">: 
+This one is like telling an older friend (Internet Explorer) to put on their best glasses to read your website properly. 
+Different versions of Internet Explorer might interpret websites differently, and some older versions might not display your website as you intended. 
+So, with this tag, you're politely asking Internet Explorer to use its newest and best version to view your website, ensuring it looks great for everyone.
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">: 
+Think of this like giving instructions to a friend who's helping you design a poster. 
+You're telling them to make sure the poster looks good no matter how big or small the paper is. 
+The width=device-width part tells the browser to make your website the same width as the screen it's being viewed on. 
+And initial-scale=1.0 tells the browser to show the website at its original size when it's first opened. 
+This ensures your website looks nice and fits well on different devices, whether it's a big computer screen or a small smartphone screen..poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+
+
+
+const iconToggle = document.querySelector('.toggle_icon');
+const navbarMenu = document.querySelector('.menu');
+const menuLinks = document.querySelectorAll ('.menu_link');
+const iconClose = document.querySelector('.close_icon')
+
+iconToggle.addEventListener ('click', () => {
+    navbarMenu.classList.toggle('active');
+});
+
+iconClose.addEventListener('click', () => {
+    navbarMenu.classList.remove('active');
+});
+
+menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener('click', () =>{
+        navbarMenu.classList.remove('active');
+    })
+})
+
+Part 2 HTML 
+
+ <main>
+        <!--Hero Section-->
+        <section class="hero section" id="hero">
+            <div class="hero_container container grid">
+                <div class ="hero content">
+                    <h4>hi there,</h4>
+                    <h1>I'm
+                        <span class="typed" data-typed-items="Designer, Developer, Freelancer"></span>
+                    </h1>
+                    <p>
+                        I'm creative designer based in New Delhi and I'm very passionate and dedicated to my work 
+                    </p>
+                    <div class="hero social">
+                        <a href="#"><ion-icon name="logo-dribbble"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Day 2 */
+
+/* ============ Hero Section ========== */
+
+.hero {
+  padding-top: 114px;
+  position: relative;
+  display: block;
+}
+
+.hero_container {
+  align-items: center;
+}
+
+.hero_container h4 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+
+.hero_container h1 {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  color: var(--title-color);
+}
+
+.hero_container p {
+  margin: 10px 0 40px;
+  color: #333;
+  font-size: 18px;
+}
+
+.hero_container .btn{
+  margin-top: 30px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero_social {
+  display: flex;
+  column-gap: 20px;
+}
+
+.hero_social a {
+  font-size: 22px;
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  color: #333;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
+
+
+
+Day 2 Morning 
+
+const sections = document.querySelectorAll('section[id]');
+
+function scrollActive() {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 50;
+
+        let sectionId = section.getAttribute('id');
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.menu a[href *=' + sectionId + ']').classList.add('active-link');
+        } else {
+            document.querySelector('.menu a[href *=' + sectionId + ']').classList.remove('active-link');
+        }
+    })
+}
+
+window.addEventListener('scroll', scrollActive)
+
+// Resume scroll
+
+const pages = document.querySelectorAll('.page');
+const resume = document.querySelector('.resume');
+
+function resumeActive() {
+    const scrollY = window.pageYOffset;
+
+    pages.forEach(page => {
+        const sectionHeight = page.offsetHeight;
+        const sectionTop = page.offsetTop - 120;
+
+        let sectionId = page.getAttribute('id');
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelector('.resume_tabs a[href *=' + sectionId + ']').classList.add('current');
+        } else {
+            document.querySelector('.resume_tabs a[href *=' + sectionId + ']').classList.remove ('current');
+        }
+    })
+}
+
+window.addEventListener('scroll', resumeActive);
+
+
+
+resume sectin HTML
+ <section class="resume selection" id="resume">
+            <h2 class ="section_title"> Resume </h2>
+
+            <div class="resume_container container grid">
+                <div class="resume_tabs">
+                    <ul>
+                        <li>
+                            <a href="#page-1" class="current"> Education </a>
+                        </li>
+                        <li>
+                            <a href="#page-2" > Experience </a>
+                        </li>
+                        <li>
+                            <a href="#page-3" > Skills </a>
+                        </li>
+                        <li>
+                            <a href="#page-4" > Awards </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="resume_content">
+<!--Page 1 Resume -->                    <div id="page-1" class="page one">
+                        <div class="page_heading"> Education </div>
+                        <div class="resume_wrap">
+                            <div class="resume_wrap-icon">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </div>
+                            <div class="resume_wrap-content">
+                                <span class="date">2014-15</span>
+                                <h4> Bachelors in Commerce </h4>
+                                <span class="position"> Hindu College, University of Delhi</span>
+                                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                    officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                    Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                            </div>
+                        </div>
+                        <div class="resume_wrap">
+                            <div class="resume_wrap-icon">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </div>
+                            <div class="resume_wrap-content">
+                                <span class="date">2017-18</span>
+                                <h4> Founder  </h4>
+                                <span class="position"> HouseItt</span>
+                                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                    officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                    Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                            </div>
+                        </div>
+                        <div class="resume_wrap">
+                            <div class="resume_wrap-icon">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </div>
+                            <div class="resume_wrap-content">
+                                <span class="date">2014-15</span>
+                                <h4> Bachelors in Commerce </h4>
+                                <span class="position"> Hindu College, University of Delhi</span>
+                                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                    officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                    Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                            </div>
+                        </div>
+                    </div>
+ <!-- Page 2 Resume -->                   <div id="page-2" class="page two">
+                        <div class="page_heading"> Experience </div>
+                        <div class="resume_wrap">
+                            <div class="resume_wrap-icon">
+                                <ion-icon name="briefcase-outline"></ion-icon>
+                            </div>
+                            <div class="resume_wrap-content">
+                                <span class="date">2014-15</span>
+                                <h4> LAMP Fellow </h4>
+                                <span class="position"> Hindu College, University of Delhi</span>
+                                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                    officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                    Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                            </div>
+                        </div>
+                        <div class="resume_wrap">
+                            <div class="resume_wrap-icon">
+                                <ion-icon name="briefcase-outline"></ion-icon>
+                            </div>
+                            <div class="resume_wrap-content">
+                                <span class="date">2017-18</span>
+                                <h4> Founder  </h4>
+                                <span class="position"> HouseItt</span>
+                                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                    officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                    Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                            </div>
+                        </div>
+                        <div class="resume_wrap">
+                            <div class="resume_wrap-icon">
+                                <ion-icon name="school-outline"></ion-icon>
+                            </div>
+                            <div class="resume_wrap-content">
+                                <span class="date">2014-15</span>
+                                <h4> Growth Department </h4>
+                                <span class="position"> Hindu College, University of Delhi</span>
+                                <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                    officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                    Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                            </div>
+                        </div>
+                    </div>
+<!-- Page 3 Resume-->                <div id="page-3" class="page three">
+                        <div class="page_heading"> Skills </div>
+                        <div class="progressBoxs grid">
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> HTML </span>
+                                    <span> 90% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:90%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Governance </span>
+                                    <span> 90% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:90%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Research  </span>
+                                    <span> 60% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:90%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Designing </span>
+                                    <span> 40% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:40%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Designing </span>
+                                    <span> 40% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:40%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Designing </span>
+                                    <span> 40% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:40%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Designing </span>
+                                    <span> 40% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:40%;"></div>
+                                </div>
+                            </div>
+                            <div class="progressBox">
+                                <div class="progress_name">
+                                    <span> Designing </span>
+                                    <span> 40% </span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress_bar" style="width:40%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                           
+                        </div>
+<!--Page 4 Resume-->                        <div id="page-4" class="page four">
+                            <div class="page_heading"> Awards </div>
+                            <div class="resume_wrap">
+                                <div class="resume_wrap-icon">
+                                    <ion-icon name="briefcase-outline"></ion-icon>
+                                </div>
+                                <div class="resume_wrap-content">
+                                    <span class="date">2014-15</span>
+                                    <h4> LAMP Fellow </h4>
+                                    <span class="position"> Hindu College, University of Delhi</span>
+                                    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                        officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                        Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                                </div>
+                            </div>
+                            <div class="resume_wrap">
+                                <div class="resume_wrap-icon">
+                                    <ion-icon name="briefcase-outline"></ion-icon>
+                                </div>
+                                <div class="resume_wrap-content">
+                                    <span class="date">2017-18</span>
+                                    <h4> Founder  </h4>
+                                    <span class="position"> HouseItt</span>
+                                    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                        officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                        Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                                </div>
+                            </div>
+                            <div class="resume_wrap">
+                                <div class="resume_wrap-icon">
+                                    <ion-icon name="school-outline"></ion-icon>
+                                </div>
+                                <div class="resume_wrap-content">
+                                    <span class="date">2014-15</span>
+                                    <h4> Growth Department </h4>
+                                    <span class="position"> Hindu College, University of Delhi</span>
+                                    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                        officia mollitia quod eius illo laboriosam! Rerum fugit tenetur commodi facilis laudantium. 
+                                        Et recusandae ullam est ratione excepturi ducimus odio velit.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
